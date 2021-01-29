@@ -9,7 +9,7 @@ public class PlaneTest {
 
    @Before
     public void setUp(){
-       plane1 = new Plane(PlaneType.BOEING747);
+       plane1 = new Plane(PlaneType.BOEING777);
    }
 
    @Test
