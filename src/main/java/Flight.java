@@ -38,5 +38,17 @@ public class Flight {
         return this.depTime;
     }
 
-    public
+//    returns capacity of plane
+    public int getAvailableSeats() {
+        return this.plane.getCapacity();
+    }
+
+//    returns current ArrayList of passengers
+    public int getPassengerCount(){
+        return this.passengers.size();
+    }
+
+    public void getPassengerBooked(Passenger passenger) {
+        this.passengers.add(passenger);
+    }
 }

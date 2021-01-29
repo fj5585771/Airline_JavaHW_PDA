@@ -10,15 +10,9 @@ public class Plane {
         return this.planeType.getCapValue();
     }
 
-    public int getTotalWeight(){
+    public int getTotalWeight() {
         return this.planeType.getWeightValue();
     }
-
-//    public int getCapInt(){
-//        return this.
-//    }
-
-
 
 
 }
