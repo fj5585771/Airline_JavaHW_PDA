@@ -72,9 +72,20 @@ public class FlightTest {
     }
 
     @Test
-    public void baggageAllowedForEachPassenger(){
-        assertEquals(20, flight1.baggageWeight4Passenger());
+    public void flightBaggageWeight(){
+        assertEquals(500, flight1.baggageWeight());
     }
 
-    
+    @Test
+    public void flightHasBaggageAvailableForEachPassenger(){
+        assertEquals(10, this.flight1.baggage4EachPassenger());
+    }
+
+    @Test
+    public void flightHasBaggageBookedByEachPassenger(){
+        passenger = new Passenger("Sawyer", 1);
+        assertEquals(10, this.flight1.maxBaggageCanBeBooked());
+    }
+
+
 }

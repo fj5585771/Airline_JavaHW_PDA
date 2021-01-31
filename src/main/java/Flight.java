@@ -56,8 +56,27 @@ public class Flight {
     }
 
 //    calculates how much baggage weight each passenger is allowed
-    public int baggageWeight4Passenger(){
-        return this.plane.getTotalWeight() / this.plane.getCapacity();
+    public int baggageWeight(){
+        return this.plane.getTotalWeight() / 2;
         }
+
+    public int baggage4EachPassenger(){
+        int bagWeight = this.baggageWeight();
+        int weightForEachPassenger = bagWeight / this.plane.getCapacity();
+        return weightForEachPassenger;
+    }
+
+    public int maxBaggageCanBeBooked(){
+        int maxBaggageBooked = 0;
+        ArrayList<Passenger> listOfPassengers = this.passengers;
+        for (Passenger passenger : listOfPassengers){
+            maxBaggageBooked += passenger.getNumberOfBags() * 10;
+        }
+        return maxBaggageBooked;
+    }
+
+
+
+
 
 }
