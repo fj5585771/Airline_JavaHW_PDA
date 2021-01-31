@@ -69,12 +69,12 @@ public class FlightTest {
         passenger = new Passenger("Sawyer", 1);
         flight1.getPassengerBooked(passenger);
         assertEquals(1, flight1.getPassengerCount());
-
     }
-//    @Test
-//    public void lessenSpaceAvailable() {
-//        flight1.lessenCapacity();
-//        assertEquals(49, );
-//    }
 
+    @Test
+    public void baggageAllowedForEachPassenger(){
+        assertEquals(20, flight1.baggageWeight4Passenger());
+    }
+
+    
 }

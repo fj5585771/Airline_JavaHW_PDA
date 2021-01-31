@@ -40,7 +40,7 @@ public class Flight {
 
 //    returns capacity of plane
     public int getAvailableSeats() {
-        return this.plane.getCapacity();
+        return this.plane.getCapacity() - this.passengers.size();
     }
 
 //    returns current ArrayList of passengers
@@ -48,7 +48,16 @@ public class Flight {
         return this.passengers.size();
     }
 
+    //  adds to passenger list if there is enough capacity
     public void getPassengerBooked(Passenger passenger) {
-        this.passengers.add(passenger);
+        if (getPassengerCount() < getAvailableSeats()) {
+            this.passengers.add(passenger);
+        }
     }
+
+//    calculates how much baggage weight each passenger is allowed
+    public int baggageWeight4Passenger(){
+        return this.plane.getTotalWeight() / this.plane.getCapacity();
+        }
+
 }
