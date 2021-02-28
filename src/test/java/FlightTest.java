@@ -82,9 +82,10 @@ public class FlightTest {
     }
 
     @Test
-    public void flightHasBaggageBookedByEachPassenger(){
-        passenger = new Passenger("Sawyer", 1);
-        assertEquals(10, this.flight1.maxBaggageCanBeBooked());
+    public void flightHasBaggageBookedByAPassenger(){
+        passenger = new Passenger("Sawyer", 15);
+        flight1.getPassengerBooked(passenger);
+        assertEquals("Must check in less bags", this.flight1.allowCustomerBookingIfMaxBaggageNotExceeded());
     }
 
 

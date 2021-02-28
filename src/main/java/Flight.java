@@ -9,8 +9,8 @@ public class Flight {
     private String depAirport;
     private String depTime;
 
-    public Flight(Plane plane, int number, String destination, String depAirport, String depTime){
-        passengers = new ArrayList<Passenger>();
+    public Flight(Plane plane, int number, String destination, String depAirport, String depTime) {
+        passengers = new ArrayList<>();
         this.plane = plane;
         this.number = number;
         this.destination = destination;
@@ -38,45 +38,42 @@ public class Flight {
         return this.depTime;
     }
 
-//    returns capacity of plane
+    //    returns current ArrayList of passengers
+    public int getPassengerCount() {
+        return this.passengers.size();
+    }
+
+    //    returns capacity of plane
     public int getAvailableSeats() {
         return this.plane.getCapacity() - this.passengers.size();
     }
 
-//    returns current ArrayList of passengers
-    public int getPassengerCount(){
-        return this.passengers.size();
-    }
-
     //  adds to passenger list if there is enough capacity
-    public void getPassengerBooked(Passenger passenger) {
+    public int getPassengerBooked(Passenger passenger) {
         if (getPassengerCount() < getAvailableSeats()) {
             this.passengers.add(passenger);
         }
+        return this.passengers.size();
     }
 
-//    calculates how much baggage weight each passenger is allowed
-    public int baggageWeight(){
+    //    calculates how much baggage weight each passenger is allowed
+    public int baggageWeight() {
         return this.plane.getTotalWeight() / 2;
-        }
+    }
 
-    public int baggage4EachPassenger(){
+    public int baggage4EachPassenger() {
         int bagWeight = this.baggageWeight();
-        int weightForEachPassenger = bagWeight / this.plane.getCapacity();
-        return weightForEachPassenger;
+        int baggageForEachPassenger = bagWeight / this.plane.getCapacity();
+        return baggageForEachPassenger;
     }
 
-    public int maxBaggageCanBeBooked(){
-        int maxBaggageBooked = 0;
+    public String allowCustomerBookingIfMaxBaggageNotExceeded() {
+        int maxBaggageBooked = this.baggage4EachPassenger();
         ArrayList<Passenger> listOfPassengers = this.passengers;
-        for (Passenger passenger : listOfPassengers){
-            maxBaggageBooked += passenger.getNumberOfBags() * 10;
-        }
-        return maxBaggageBooked;
+        for (Passenger passenger : listOfPassengers) {
+            if (passenger.getNumberOfBags() > maxBaggageBooked) {
+                return "Must check in less bags";
+            }
+        } return "Success!";
     }
-
-
-
-
-
 }
