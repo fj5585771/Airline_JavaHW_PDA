@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Flight {
 
@@ -75,5 +76,11 @@ public class Flight {
                 return "Must check in less bags";
             }
         } return "Success!";
+    }
+
+    public ArrayList<Passenger> sortPassengerByStringName() {
+        ArrayList<Passenger> listOfPassengers = this.passengers;
+        System.out.println("This is the list before sorting :" + listOfPassengers);
+//        Collections.sort(listOfPassengers);
     }
 }
